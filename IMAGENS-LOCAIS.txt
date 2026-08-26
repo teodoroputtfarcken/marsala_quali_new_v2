@@ -1,0 +1,26 @@
+IMAGENS E REFERÊNCIAS LOCAIS
+
+As referências a imagens online foram removidas.
+
+Imagens de conteúdo retiradas do carregamento foram movidas para:
+/imagens retiradas/
+
+Os espaços e dimensões do layout permanecem no HTML/CSS.
+
+Imagens de fundo NÃO-HERO preservadas como referências locais:
+/assets/backgrounds/fundo-1.jpg
+/assets/backgrounds/fundo-1-Copia-rotated.jpg
+/assets/backgrounds/home-bg-2.jpg
+/assets/backgrounds/home-bg-2-Copia-rotated.jpg
+/assets/backgrounds/historia.jpg
+
+Esses cinco arquivos não existiam localmente no pacote original; o HTML/CSS agora aponta somente para esses caminhos locais. Para que esses fundos apareçam, coloque os respectivos arquivos nessa pasta.
+
+Imagens de hero/slider não possuem mais referência online.
+SVGs, ícones sociais, bandeiras e ícones de interface não foram removidos.
+
+
+CATÁLOGO DE PRODUTOS
+-------------------
+A página Produtos agora usa js/produtos.js como fonte oficial do catálogo (41 produtos / 5 linhas).
+As fotos usam somente caminhos locais assets/produtos/<arquivo>.png. Se o arquivo não estiver presente, o espaço do card permanece vazio.

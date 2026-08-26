@@ -1,0 +1,27 @@
+
+.catalogo{position:relative;background:#F8E9DE;padding:24px 0 56px;overflow:hidden}
+.filtros{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 0 24px}
+.filtro{appearance:none;border:1px solid #EE8881;border-radius:999px;background:#fff;color:#E64C42;font:500 13px Questrial, Arial, sans-serif;padding:9px 16px;cursor:pointer;transition:.2s}
+.filtro.is-active,.filtro:hover{background:var(--marsala-red);border-color:var(--marsala-red);color:#fff}
+.produtos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px;align-items:start}
+.produto{min-width:0}
+.produto-quadro{position:relative;background:#f1e2db;aspect-ratio: 1 / .66;overflow:hidden}
+.produto-foto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f1e2db}
+.produto-foto img{width:100%;height:100%;object-fit:cover}
+.produto-lateral{position:absolute;inset:0;pointer-events:none}
+.produto-faixa{position:absolute;top:0;right:12px;width:54px;height:138px;border-radius:0 0 18px 18px;color:#fff;display:flex;align-items:center;justify-content:center;padding:8px}
+.produto-faixa--vermelho{background:var(--marsala-red)}
+.produto-faixa--azul{background:var(--marsala-blue)}
+.produto-faixa .cat{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;line-height:1;letter-spacing:.03em;text-align:center}
+.produto-faixa .nome{display:none}
+.produto-peso{position:absolute;right:0;bottom:0;width:62px;height:62px;background:#f2c3bc;border-top-left-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#E3372B}
+.produto-peso .codigo{font-size:10px;line-height:1;margin-bottom:2px}
+.produto-peso .valor{font:700 20px Bitter, serif;line-height:1}
+.produto-peso small{font-size:11px;line-height:1;margin-left:1px}
+.produto-nome{margin:10px 0 0;color:#DA291D;font:700 16px Bitter, serif;line-height:1.2}
+.produtos-vazio{text-align:center;padding:30px;font-size:16px}
+.produtos-mais{text-align:center;margin-top:28px}
+.btn,.btn--solid{appearance:none;background:var(--marsala-red);border:1px solid var(--marsala-red);border-radius:999px;color:#fff;font:500 15px Questrial,Arial,sans-serif;padding:11px 26px;cursor:pointer}
+.btn:hover{background:var(--marsala-red-dark);border-color:var(--marsala-red-dark)}
+@media (max-width:980px){.produtos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.produtos-grid{grid-template-columns:1fr}.page-hero{height:180px}.page-band h1{font-size:28px}}

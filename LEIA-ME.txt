@@ -1,0 +1,2 @@
+Abra index.html para iniciar o site.
+Páginas: index.html, produtos.html, contato.html, peca-nossos-produtos.html.

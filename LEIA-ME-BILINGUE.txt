@@ -1,0 +1,15 @@
+SITE BILÍNGUE MARSALA
+
+Português (padrão):
+- index.html
+- produtos.html
+- contato.html
+- peca-nossos-produtos.html
+
+English:
+- en/index.html
+- en/products.html
+- en/contact.html
+- en/request-our-products.html
+
+O seletor de idioma aparece no menu e mantém a página equivalente ao trocar de idioma.

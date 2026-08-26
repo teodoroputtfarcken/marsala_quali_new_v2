@@ -1,0 +1,32 @@
+Official website: https://marsala.com.br/
+
+# Marsala
+
+Marsala is an alimentary products company located at R. Nutrella, 557, Gravataí - RS, Brazil.
+
+## Main pages
+- / — Portuguese home
+- /produtos.html — Products
+- /contato.html — Contact
+- /peca-nossos-produtos.html — Request our products
+- /en/ — English home
+- /en/products.html — Products in English
+- /en/contact.html — Contact in English
+- /en/request-our-products.html — Request our products in English
+
+## Product lines shown on the site
+- Linha Institucional / Food Service Line
+- Massa Recheada / Filled Pasta
+- Massa Fresca / Fresh Pasta
+- Linha Seca / Dry Line
+- Pão de Alho / Garlic Bread
+
+## Contact
+- Email: contato@marsala.com.br
+- Phone: +55 51 3497-2394
+- Address: R. Nutrella, 557 - Gravataí - RS, Brazil
+
+## Official social profiles
+- Facebook: https://www.facebook.com/MarsalaAlimentos
+- Instagram: https://www.instagram.com/marsalaalimentos/
+- LinkedIn: https://www.linkedin.com/company/marsala-alimentos/

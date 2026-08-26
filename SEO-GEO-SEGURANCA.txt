@@ -1,0 +1,38 @@
+OTIMIZAÇÕES APLICADAS SEM ALTERAR TEXTO VISÍVEL
+
+SEO / GEO
+- Títulos de documento corrigidos para Marsala.
+- Meta descriptions derivadas exclusivamente dos textos já presentes nas páginas.
+- Open Graph e Twitter Card corrigidos para Marsala.
+- Schema antigo do Yoast/Qualibread removido.
+- Schema.org Organization + LocalBusiness + WebSite + WebPage/ContactPage/CollectionPage adicionado.
+- ItemList de produtos gerado a partir dos nomes já presentes na página.
+- hreflang pt-BR, en-US e x-default adicionado.
+- Links técnicos de descoberta do WordPress antigo removidos do head.
+- robots.txt criado.
+- llms.txt criado como apoio a mecanismos generativos.
+
+SEGURANÇA
+- .htaccess com X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy e HSTS quando HTTPS.
+- Directory listing desativado em Apache.
+- Cache de assets estáticos configurado.
+- CSP NÃO foi forçada nesta etapa porque os scripts herdados do Elementor usam recursos que precisam ser testados no domínio final; aplicar uma CSP rígida agora poderia quebrar sliders, menu ou formulários.
+
+PENDÊNCIAS QUE EXIGEM O DOMÍNIO FINAL / SERVIDOR
+- Converter canonical e hreflang para URLs absolutas definitivas.
+- Gerar sitemap.xml válido (o padrão exige URLs absolutas).
+- Adicionar a URL do sitemap ao robots.txt.
+- Definir og:url absoluto.
+- Validar headers reais no servidor (Nginx ignora .htaccess).
+- Testar e endurecer Content-Security-Policy após publicação.
+- Configurar endpoint real dos formulários e proteção anti-spam.
+
+
+DOMÍNIO FINAL CONFIGURADO
+- https://marsala.com.br/
+- Canonicals absolutos configurados
+- hreflang PT-BR / EN-US / x-default absolutos configurados
+- og:url configurado
+- Schema URLs/@id absolutos configurados
+- sitemap.xml criado
+- robots.txt apontando para o sitemap final

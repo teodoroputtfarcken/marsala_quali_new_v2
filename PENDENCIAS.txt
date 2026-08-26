@@ -1,0 +1,143 @@
+MARSALA — SITE V2
+=================
+Estado do pacote e o que ainda falta para publicar.
+
+
+O QUE FOI FEITO
+---------------
+1. Cor da marca trocada para #DA291D em todo o site (249 substituições).
+   Tons derivados: #A71F16 (hover) e #9E1E15 (botão voltar ao topo).
+   Definidos em css/base.css (:root) e nos CSS das páginas Elementor.
+
+2. Limpeza da estrutura legada: 18 MB -> 9,3 MB, 410 -> 270 arquivos.
+   Removidos 137 arquivos órfãos, rastreadores do Jetpack, polyfill de
+   emoji, metas "generator" e 63 referências ao domínio do cliente
+   anterior (qualibread.com.br). As 8 páginas foram conferidas pixel a
+   pixel antes e depois: nenhuma diferença visual.
+
+3. Logo unificado. As 34 referências apontam para um único arquivo:
+   assets/shared/logo.png
+
+4. Fundos pêssego removidos:
+   - Produtos: faixa do topo (cor #ECD0C9)
+   - Home: faixa acima de "Nossas Linhas" (cor #F8E9DE)
+   - Contato: imagem de fundo do bloco do formulário
+   - Peça Nossos Produtos: imagem de fundo da seção (a cor #F8E9DE foi mantida)
+
+5. Contato: endereço, telefone e e-mail alinhados na mesma borda esquerda
+   (os três com 340px). O ícone do endereço foi igualado aos demais (45px).
+   Corrigido também um transbordamento em telas de ~768px que já existia.
+
+6. Página de Produtos: fundo da seção do catálogo em #F8E9DE, e removidas
+   as duas folhas decorativas (folhagem.svg) das laterais.
+
+7. Página de Produtos: rodapé igualado ao das demais páginas — cor de fundo
+   (#F7CCAA), ícones (49px), logo (113px), texto do copyright, crédito em
+   itálico e caixa alta, e largura do conteúdo (938px).
+
+8. Página de Contato: fundo #F8E9DE aplicado no bloco do formulário
+   e no bloco dos dados de contato, e removida a imagem decorativa de
+   folhagem (fundo-1.jpg) que ficava atrás dos dados de contato.
+
+9. Copyright em inglês corrigido nas três páginas Elementor — estava
+   "All os direitos reservados" (tradução pela metade), agora
+   "All rights reserved".
+
+Tudo acima vale para as 8 páginas — 4 em português e 4 em inglês.
+
+
+O QUE FALTA (BLOQUEIA A PUBLICAÇÃO)
+-----------------------------------
+1. LOGO
+   O arquivo assets/shared/logo.png NÃO existe no pacote — nunca foi
+   enviado. Sem ele, as 8 páginas mostram imagem quebrada no cabeçalho
+   e no rodapé. Dimensões originais: 423 x 161 px.
+
+2. FOTOS DOS PRODUTOS
+   Os 41 arquivos em assets/produtos/ são todos o MESMO placeholder
+   "Imagem em breve" (confirmado por hash: 41 arquivos, 1 conteúdo único).
+   As fotos reais precisam substituí-los, mantendo os nomes — a lista
+   está em js/produtos.js, campo "img".
+
+3. FORMULÁRIOS
+   Contato e Peça Nossos Produtos não têm endpoint de envio configurado.
+   Precisa de backend e proteção anti-spam.
+
+4. SERVIDOR
+   - Validar headers de segurança (Nginx ignora .htaccess)
+   - Aplicar e testar a Content-Security-Policy
+   - Cache de assets estáticos
+
+
+DECISÕES EM ABERTO
+------------------
+1. Página de Produtos: sobrou uma faixa branca vazia de 236px entre o
+   cabeçalho e a tarja "Nossos Produtos" — o elemento existia só para
+   exibir o fundo pêssego removido. Pode ser eliminada.
+
+2. Página de Contato: o bloco do lado esquerdo continua pêssego (#F7CCAA),
+   ao lado do bloco do formulário que agora é #FAF7F5.
+
+3. Rodapés seguem pêssego: #F0CDC3 na página de Produtos e #F7CCAA
+   nas demais.
+
+4. Peça Nossos Produtos: o card do formulário tem largura diferente
+   entre os idiomas (413px em português, 364px em inglês) porque a
+   largura acompanha o texto dos campos. Pode ser fixada.
+
+5. Um bloco roxo (#833CA3) aparece num slide do slider da Home —
+   aparenta ser cor de teste esquecida.
+
+6. As três páginas Elementor lançam cerca de 130 erros de JavaScript
+   cada, tentando carregar trechos de código do backend WordPress que
+   não existe mais. Não quebram o visual, mas são resíduo de um site
+   publicado a partir de "salvar página como".
+
+
+NOTA TÉCNICA — LAZY-LOAD DE FUNDOS
+----------------------------------
+O Elementor esconde as imagens de fundo dos containers até o JavaScript
+adicionar a classe "e-lazyloaded":
+
+  .e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded) * {
+      background-image: none !important; }
+
+Como o JavaScript do Elementor está quebrado neste pacote (tenta carregar
+trechos do backend WordPress que não existe mais), essas imagens só
+aparecem em parte dos navegadores e situações. Ao inspecionar a página,
+force a classe antes de concluir que um fundo não existe:
+
+  document.querySelectorAll('.e-con').forEach(e=>e.classList.add('e-lazyloaded'))
+
+Imagens de fundo que continuam ativas, com o lazy-load destravado:
+  index.html    home-bg-2.jpg (hero — ARQUIVO NÃO EXISTE no pacote,
+                referência quebrada) e historia.webp (foto da fábrica na
+                seção "Nossa História")
+  contato.html  CONTATO-2.jpg (foto aérea da fábrica, no topo)
+  produtos.html, peca-nossos-produtos.html, en/*: nenhuma
+
+A folhagem decorativa (fundo-1.jpg) foi removida de todas as páginas.
+
+10. Folhagem decorativa removida da index (bloco dos cards de "Nossas
+    Linhas") e da página de Produtos (duas folhas SVG nas laterais).
+    Nos dois casos o fundo passou a ser #F8E9DE.
+
+11. Página de Produtos: removida a faixa branca de 80px entre a seção do
+    catálogo e o rodapé (era margin-top no .footer). O respiro passou para
+    dentro da própria seção, como padding, para o botão "Ver mais" não
+    encostar no rodapé. Vale para PT e EN.
+
+12. Home: os botões "Ver mais" / "Learn more" dos cards de linha quebravam
+    em duas linhas (o botão tinha 110px de padding lateral, sobrando 64px
+    para um texto que precisa de 73px em português e 101px em inglês).
+    Padding reduzido para 24px de cada lado e texto travado em uma linha.
+    Conferido de 1440px a 390px, PT e EN.
+
+
+ACHADO NÃO RESOLVIDO
+--------------------
+O card "Pão de Alho" / "Garlic Bread" DESAPARECE em telas de até 600px
+de largura — some no celular. Os outros quatro cards continuam visíveis.
+O elemento existe no HTML, mas fica com largura zero nessa faixa.
+Não foi corrigido porque não foi solicitado; avise se quiser que eu
+investigue.
